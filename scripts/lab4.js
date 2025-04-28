@@ -42,6 +42,10 @@ function discountPrices(prices, discount) {
         discounted.push(discountedPrice);
     }
 
+    if(discounted.length == 0){
+        return false; // added check if discounted is emtpy
+    }
+
     return discounted;
 }
 
