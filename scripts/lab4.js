@@ -30,7 +30,7 @@ function sumValues(num1, num2, add) {
  * @returns An array of each price's new price, after the discount is applied. Or false, if prices array is empty.
  */
 function discountPrices(prices, discount) {
-    if(prices.lenth == 0 || typeof discount != 'number'){ // added check for discount type 
+    if(prices.length == 0 || typeof discount != 'number' || !Array.isArray(prices)){ // added check for discount type 
         return false;
     } // added check for prices length 
 
@@ -40,10 +40,6 @@ function discountPrices(prices, discount) {
     for(let i = 0; i < length; i++) {
         const discountedPrice = prices[i] * (1 - discount); // added const
         discounted.push(discountedPrice);
-
-        if(typeof discounted[i] != 'number'){ // checking if elements are of type number 
-            return false;
-        }
     }
 
     if(discounted.length == 0){
