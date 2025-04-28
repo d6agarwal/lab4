@@ -36,10 +36,14 @@ function discountPrices(prices, discount) {
 
     const discounted = []
     const length = prices.length;
-    //let discountedPrice = 0       // commented out this line
+    let discountedPrice = 0       // commented out this line
     for(let i = 0; i < length; i++) {
         const discountedPrice = prices[i] * (1 - discount); // added const
         discounted.push(discountedPrice);
+
+        if(typeof discounted[i] != 'number'){ // checking if elements are of type number 
+            return false;
+        }
     }
 
     if(discounted.length == 0){
